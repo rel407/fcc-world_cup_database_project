@@ -8,10 +8,11 @@ else
 fi
 
 # Do not change code above this line. Use the PSQL variable above to query your database.
+
 echo $($PSQL "TRUNCATE TABLE games, teams")
 
 # Read through .csv file and set variables to corresponding columns
-tail -n +2 games.csv | while IFS="," read YEAR ROUND WINNER OPPONENT WINNER_GOALS OPPONENT_GOALS
+tail -n +2 games.csv | while IFS="," read -r YEAR ROUND WINNER OPPONENT WINNER_GOALS OPPONENT_GOALS
 do
 
   # Check to see if winner needs to be added to 'teams' table
